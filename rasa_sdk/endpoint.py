@@ -4,6 +4,7 @@ import logging
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 from gevent.pywsgi import WSGIServer
+from gevent import monkey
 
 import rasa_sdk
 from rasa_sdk import utils
@@ -13,6 +14,7 @@ from rasa_sdk.executor import ActionExecutor
 from rasa_sdk.interfaces import ActionExecutionRejection
 
 logger = logging.getLogger(__name__)
+monkey.patch_all()
 
 
 def create_ssl_context(ssl_certificate, ssl_keyfile, ssl_password):
