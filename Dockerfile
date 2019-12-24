@@ -24,8 +24,6 @@ VOLUME ["/app/actions"]
 
 EXPOSE 5055
 
-ENV ACTION_PACKAGE="actions"
-
 ENTRYPOINT ["./entrypoint.sh"]
 
-CMD ["start", "--actions", "actions.$ACTION_PACKAGE "]
+CMD ["start", "--actions", "actions.actions"]
