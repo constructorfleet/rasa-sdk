@@ -12,6 +12,7 @@ function print_help {
 
 case ${1} in
     start)
+        find /app/actions -name requirements.txt -exec pip install -r  {} \
         exec python -m rasa_sdk "${@:2}"
         ;;
     install_deps)
